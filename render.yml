@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: patty-django-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn pattybackend.wsgi"
+    envVars:
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: DATABASE_URL
+        value: postgresql://admin:H9J3O9ILsVwbEukL2ss2O4Vi7E2gLkn2@dpg-d0iaevd6ubrc73db4uv0-a.oregon-postgres.render.com/patty_postgress_db
+      - key: DEBUG
+        value: false
